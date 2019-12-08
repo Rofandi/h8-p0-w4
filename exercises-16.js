@@ -4,17 +4,24 @@ function graduates (students) {
     var result = {};
     for(let i=0; i<classList.length; i++)
     {
-        result[classList[i]] =
-        for(let j=0; j<graduatedName.length; j++)
-        { 
-            if(classList[i].name===graduatedName[i])
-            {
-                name: classList[i].name,
-                score: classList[i].score
+        let graduatedStudentsInClass = [];
+        for(let j=0; j<students.length; j++)
+        {
+            if(students[i].class===classList[i]){
+                for(let k=0; k<graduatedName.length; k++)
+                {
+                    if (students[j].name === graduatedName[k]) {
+                        graduatedStudentsInClass.push({
+                            name: students[j].name,
+                            score: students[j].score
+                        });
+                    }
+                }
             }
         }
+        result[classList[i]] = graduatedStudentsInClass;
     }
-    console.log(result);
+    return result;
 }
 
 function getGraduatedName(students){
